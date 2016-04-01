@@ -9,7 +9,7 @@ type VisJSGraph
     divid
 end
 
-VisJSGraph(p,e) = VisJSGraph(p, e, Base.Random.uuid4())
+VisJSGraph(p,e) = VisJSGraph(p, e, randstring())
 
 include("display.jl")
 include("utils.jl")
