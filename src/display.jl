@@ -18,10 +18,19 @@ function html_body(p::VisJSGraph)
     """
 end
 
+function get_color(c)
+  if c != ""
+    return ",color: \'$c\'"
+  else
+    return ""
+  end
+end
+
 function generate_plot(p::VisJSGraph)
     nodes = ["{id:$(p.n[i].id),
                label: '$(p.n[i].label)',
-               color: '#$(p.n[i].color)',
+               group: '$(p.n[i].group)'
+               $(get_color(p.n[i].color))
               }" for i in 1:size(p.n,1)]
     edges = ""
     for item in p.e
@@ -52,7 +61,11 @@ function generate_plot(p::VisJSGraph)
         nodes: nodes,
         edges: edges
     };
-    var options = {};
+    var options = {
+      nodes: {
+          shape: 'dot',
+        },
+    };
 
     // initialize your network!
     var network = new vis.Network(container, data, options);
