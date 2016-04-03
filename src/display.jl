@@ -21,11 +21,7 @@ end
 function generate_plot(p::VisJSGraph)
     nodes = ["{id:$(p.n[i].id),
                label: '$(p.n[i].label)',
-               color:
-                {
-                  border: '$(p.n[i].color)',
-                  background: '$(p.n[i].color)'
-                },
+               color: '#$(p.n[i].color)',
               }" for i in 1:size(p.n,1)]
     edges = ""
     for item in p.e
