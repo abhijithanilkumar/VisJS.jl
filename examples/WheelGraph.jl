@@ -1,5 +1,5 @@
 using Interact
-using LightGraph
+using LightGraphs
 using VisJS
 
 # Little slow to update!
