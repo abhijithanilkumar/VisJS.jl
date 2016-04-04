@@ -17,8 +17,6 @@ type VisJSGraph
 end
 
 VisJSGraph(n,e) = VisJSGraph(n, e, randstring())
-NodeType(id) = NodeType(id,"$id","red")
-NodeType(id,label,group) = NodeType(id,label,"",group)
 
 include("display.jl")
 include("utils.jl")
